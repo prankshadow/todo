@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.note{
+    @apply bg-white border rounded-md shadow-md p-3 w-60 m-4 float-left
+}
