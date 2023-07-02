@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Note from '@/components/Note'
+import ToDoItem from '@/components/ToDoItem'
 import Image from 'next/image'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         {/* Main content here */}
 
         <Note />
+        <ToDoItem />
 
       </main>
       <footer className="flex-shrink-0">
