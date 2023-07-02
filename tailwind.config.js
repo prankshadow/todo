@@ -19,6 +19,7 @@ module.exports = {
       fontFamily: {
         inter: ['var(--font-inter)'],
         fasthand: ['var(--font-fasthand)'],
+        alegreyaSansSC: ['var(--font-alegreyaSansSC)'],
       },
     },
   },

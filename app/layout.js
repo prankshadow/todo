@@ -1,5 +1,5 @@
 import './globals.css'
-import { Inter, Fasthand } from 'next/font/google'
+import { Inter, Fasthand, Alegreya_Sans_SC } from 'next/font/google'
 
 //Fonts added here.............
 const inter = Inter({
@@ -14,6 +14,12 @@ const fasthand = Fasthand({
   display: 'swap',
   variable: '--font-fasthand',
 });
+const alegreyaSansSC = Alegreya_Sans_SC({
+  subsets: ['latin'],
+  weight: '300',
+  display: 'swap',
+  variable: '--font-alegreyaSansSC',
+});
 
 export const metadata = {
   title: 'To Do App',
@@ -23,7 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${fasthand.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${fasthand.variable} ${alegreyaSansSC.variable}`}>{children}</body>
     </html>
   )
 }
