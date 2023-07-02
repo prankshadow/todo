@@ -10,8 +10,8 @@ const ToDoItem = () => {
                     <button>
                         <Image
                             src='/check.svg'
-                            width={15}
-                            height={15}
+                            width={18}
+                            height={18}
                             alt='check button'
                         />
                     </button>
