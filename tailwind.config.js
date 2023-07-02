@@ -16,6 +16,10 @@ module.exports = {
       backgroundPosition: {
         'dotted': '0 0, 100px 100px',
       },
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        fasthand: ['var(--font-fasthand)'],
+      },
     },
   },
   plugins: [],

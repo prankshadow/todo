@@ -1,7 +1,19 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Inter, Fasthand } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+//Fonts added here.............
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const fasthand = Fasthand({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-fasthand',
+});
 
 export const metadata = {
   title: 'To Do App',
@@ -11,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.variable} ${fasthand.variable}`}>{children}</body>
     </html>
   )
 }
