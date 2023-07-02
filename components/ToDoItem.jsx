@@ -3,7 +3,7 @@ import React from 'react'
 
 const ToDoItem = () => {
     return (
-        <div className='text-center justify-items-center grid grid-cols-4 gap-4 text-3xl font-alegreyaSansSC font-semibold'>
+        <div className='text-center justify-items-center grid grid-cols-4 gap-4 text-4xl font-alegreyaSansSC font-semibold'>
             <div className='flex items-center'>
                 <h1 className='px-8'>Hello</h1>
                 <div className='grid grid-cols-2 gap-3'>
