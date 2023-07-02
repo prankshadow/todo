@@ -6,7 +6,6 @@ const ToDoItem = () => {
         <div className='text-center justify-items-center grid grid-cols-4 gap-4 text-3xl font-alegreyaSansSC font-semibold'>
             <div className='flex items-center'>
                 <h1 className='px-8'>Hello</h1>
-
                 <div className='grid grid-cols-2 gap-3'>
                     <button>
                         <Image
@@ -25,14 +24,7 @@ const ToDoItem = () => {
                         />
                     </button>
                 </div>
-
             </div>
-            <h1>Hello</h1>
-            <h1>Hello</h1>
-            <h1>Hello</h1>
-            <h1>Hello</h1>
-            <h1>Hello</h1>
-            <h1>Hello</h1>
         </div>
     )
 }
