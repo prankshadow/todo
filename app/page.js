@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import Note from '@/components/Note'
 import Image from 'next/image'
 
 export default function Home() {
@@ -10,6 +11,9 @@ export default function Home() {
       </header>
       <main className="flex-grow bg-dotted">
         {/* Main content here */}
+
+        <Note />
+
       </main>
       <footer className="flex-shrink-0">
         <Footer />
