@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const ToDoItemList = ({ data }) => {
     return (
-        <div className='grid grid-cols-4 gap-4 text-center'>
+        <div className='md:grid grid-cols-4 gap-4 text-center flex flex-col'>
             {data.map((post) => (
                 <ToDoItem
                     key={post._id}
