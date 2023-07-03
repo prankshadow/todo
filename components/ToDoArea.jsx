@@ -46,6 +46,7 @@ const ToDoArea = () => {
             }
             const addedItem = await response.json();
             setPosts((prevData) => [...prevData, addedItem]);
+            setPost({ todoitem: "", });
         } catch (error) {
             console.log(error);
         } finally {
