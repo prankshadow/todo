@@ -3,10 +3,8 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 
 const ToDoItem = ({ post }) => {
-
-
+    
     const [isCompleted, setIsCompleted] = useState(false);
-    const [posts, setPosts] = useState([]);
 
     const handleCheck = () => {
         setIsCompleted((prev) => !prev);
@@ -29,8 +27,6 @@ const ToDoItem = ({ post }) => {
             }
         }
     }
-
-
 
     return (
         <div className='text-4xl font-alegreyaSansSC font-semibold'>
