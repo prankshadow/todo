@@ -22,8 +22,7 @@ const ToDoItem = ({ post }) => {
                     method: 'DELETE'
                 });
 
-                const filteredTodo = posts.filter((p) => p._id !== post._id)
-                setPosts(filteredTodo)
+                window.location.reload();
 
             } catch (error) {
                 console.log(error);
