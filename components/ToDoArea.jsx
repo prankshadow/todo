@@ -5,11 +5,11 @@ import ToDoItem from '@/components/ToDoItem'
 import { useRouter } from 'next/navigation';
 
 
-const ToDoItemList = ({data}) => {
-    return(
+const ToDoItemList = ({ data }) => {
+    return (
         <div className='grid grid-cols-4 gap-4 text-center'>
             {data.map((post) => (
-                <ToDoItem 
+                <ToDoItem
                     key={post._id}
                     post={post}
                 />
@@ -33,6 +33,9 @@ const ToDoArea = () => {
         e.preventDefault();
         setSubmitting(true);
 
+        router.refresh();
+
+
         try {
             const response = await fetch('/api/prompt/new',
                 {
@@ -40,11 +43,16 @@ const ToDoArea = () => {
                     body: JSON.stringify({
                         todoitem: post.todoitem,
                     })
-                })
+                }, { cache: 'no-store' })
 
             if (response.ok) {
                 router.push('/')
+                router.refresh();
             }
+            const addedItem = await response.json();
+            setPosts((prevData) => [...prevData, addedItem]);
+
+            router.refresh();
         } catch (error) {
             console.log(error);
         } finally {
@@ -54,14 +62,19 @@ const ToDoArea = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-          const response = await fetch('/api/prompt');
-          const data = await response.json();
-    
-          setPosts(data);
+            const response = await fetch('/api/prompt', { cache: 'no-store' });
+            const data = await response.json();
+
+            setPosts(data);
+            console.log(data);
+            router.refresh();
         }
 
         fetchPosts();
-      }, [])
+        router.refresh();
+    }, [router])
+
+
 
     return (
         <>
@@ -72,7 +85,7 @@ const ToDoArea = () => {
                 submitting={submitting}
                 handleSubmit={createPrompt}
             />
-            <ToDoItemList 
+            <ToDoItemList
                 data={posts}
             />
         </>
