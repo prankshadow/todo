@@ -1,8 +1,23 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Note from '@/components/Note'
 import ToDoItem from '@/components/ToDoItem'
 import { useRouter } from 'next/navigation';
+
+
+const ToDoItemList = ({data}) => {
+    return(
+        <div>
+            {data.map((post) => (
+                <ToDoItem 
+                    key={post._id}
+                    post={post}
+                />
+            ))}
+        </div>
+    )
+}
+
 
 
 const ToDoArea = () => {
@@ -13,6 +28,8 @@ const ToDoArea = () => {
     const [post, setPost] = useState({
         todoitem: "",
     });
+
+    const [posts, setPosts] = useState([]);
 
     const createPrompt = async (e) => {
         e.preventDefault();
@@ -37,6 +54,17 @@ const ToDoArea = () => {
         }
     }
 
+    useEffect(() => {
+        const fetchPosts = async () => {
+          const response = await fetch('/api/prompt');
+          const data = await response.json();
+    
+          setPosts(data);
+        }
+
+        fetchPosts();
+      }, [])
+
     return (
         <>
             <Note
@@ -46,7 +74,12 @@ const ToDoArea = () => {
                 submitting={submitting}
                 handleSubmit={createPrompt}
             />
-            <ToDoItem />
+            {/* <ToDoItem 
+
+            /> */}
+            <ToDoItemList 
+                data={posts}
+            />
         </>
     )
 }
