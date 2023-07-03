@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const ToDoItemList = ({data}) => {
     return(
-        <div>
+        <div className='grid grid-cols-4 gap-4 text-center'>
             {data.map((post) => (
                 <ToDoItem 
                     key={post._id}
@@ -17,8 +17,6 @@ const ToDoItemList = ({data}) => {
         </div>
     )
 }
-
-
 
 const ToDoArea = () => {
 
@@ -74,9 +72,6 @@ const ToDoArea = () => {
                 submitting={submitting}
                 handleSubmit={createPrompt}
             />
-            {/* <ToDoItem 
-
-            /> */}
             <ToDoItemList 
                 data={posts}
             />
