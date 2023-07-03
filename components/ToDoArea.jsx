@@ -32,10 +32,6 @@ const ToDoArea = () => {
     const createPrompt = async (e) => {
         e.preventDefault();
         setSubmitting(true);
-
-        router.refresh();
-
-
         try {
             const response = await fetch('/api/prompt/new',
                 {
@@ -43,16 +39,13 @@ const ToDoArea = () => {
                     body: JSON.stringify({
                         todoitem: post.todoitem,
                     })
-                }, { cache: 'no-store' })
+                })
 
             if (response.ok) {
                 router.push('/')
-                router.refresh();
             }
             const addedItem = await response.json();
             setPosts((prevData) => [...prevData, addedItem]);
-
-            router.refresh();
         } catch (error) {
             console.log(error);
         } finally {
@@ -62,17 +55,13 @@ const ToDoArea = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch('/api/prompt', { cache: 'no-store' });
+            const response = await fetch('/api/prompt');
             const data = await response.json();
 
             setPosts(data);
-            console.log(data);
-            router.refresh();
         }
-
         fetchPosts();
-        router.refresh();
-    }, [router])
+    }, [])
 
 
 
