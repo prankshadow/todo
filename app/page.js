@@ -1,7 +1,8 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import Note from '@/components/Note'
-import ToDoItem from '@/components/ToDoItem'
+// import Note from '@/components/Note'
+import ToDoArea from '@/components/ToDoArea'
+// import ToDoItem from '@/components/ToDoItem'
 import Image from 'next/image'
 
 export default function Home() {
@@ -13,8 +14,7 @@ export default function Home() {
       <main className="flex-grow bg-dotted">
         {/* Main content here */}
 
-        <Note />
-        <ToDoItem />
+        <ToDoArea />
 
       </main>
       <footer className="flex-shrink-0">
