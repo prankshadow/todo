@@ -2,31 +2,21 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-const ToDoItem = ({ post }) => {
-    
+const ToDoItem = ({ post, handleDelete }) => {
+
+
+
     const [isCompleted, setIsCompleted] = useState(false);
 
     const handleCheck = () => {
         setIsCompleted((prev) => !prev);
     };
 
-    const handleDelete = async () => {
-        const hasConfirmed = confirm("Are you sure want to delete this todo item?")
 
-        if (hasConfirmed) {
-            try {
+    const onDelete = () => {
+        handleDelete(post._id);
+    };
 
-                await fetch(`/api/prompt/${post._id.toString()}`, {
-                    method: 'DELETE'
-                });
-
-                window.location.reload();
-
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    }
 
     return (
         <div className='text-4xl font-alegreyaSansSC font-semibold'>
@@ -55,7 +45,7 @@ const ToDoItem = ({ post }) => {
                             width={15}
                             height={15}
                             alt='delete button'
-                            onClick={handleDelete}
+                            onClick={onDelete}
                         />
                     </button>
                 </div>

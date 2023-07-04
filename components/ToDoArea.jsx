@@ -5,18 +5,19 @@ import ToDoItem from '@/components/ToDoItem'
 import { useRouter } from 'next/navigation';
 
 
-const ToDoItemList = ({ data }) => {
+const ToDoItemList = ({ data, handleDelete }) => {
     return (
         <div className='md:grid grid-cols-4 gap-4 text-center flex flex-col'>
             {data.map((post) => (
                 <ToDoItem
                     key={post._id}
                     post={post}
+                    handleDelete={handleDelete}
                 />
             ))}
         </div>
-    )
-}
+    );
+};
 
 const ToDoArea = () => {
 
@@ -54,6 +55,25 @@ const ToDoArea = () => {
         }
     }
 
+
+    const handleDelete = async (postId) => {
+        const hasConfirmed = window.confirm("Are you sure want to delete this todo item?");
+      
+        if (hasConfirmed) {
+          try {
+            await fetch(`/api/prompt/${postId}`, {
+              method: 'DELETE'
+            });
+            const updatedPosts = posts.filter(post => post._id !== postId);
+            setPosts(updatedPosts);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      };
+
+
+
     useEffect(() => {
         const fetchPosts = async () => {
             const response = await fetch('/api/prompt');
@@ -77,6 +97,7 @@ const ToDoArea = () => {
             />
             <ToDoItemList
                 data={posts}
+                handleDelete={handleDelete}
             />
         </>
     )
