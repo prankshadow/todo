@@ -4,19 +4,15 @@ import React, { useState } from 'react'
 
 const ToDoItem = ({ post, handleDelete }) => {
 
-
-
     const [isCompleted, setIsCompleted] = useState(false);
 
     const handleCheck = () => {
         setIsCompleted((prev) => !prev);
     };
 
-
     const onDelete = () => {
         handleDelete(post._id);
     };
-
 
     return (
         <div className='text-4xl font-alegreyaSansSC font-semibold'>

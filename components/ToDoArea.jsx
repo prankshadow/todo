@@ -55,7 +55,6 @@ const ToDoArea = () => {
         }
     }
 
-
     const handleDelete = async (postId) => {
         const hasConfirmed = window.confirm("Are you sure want to delete this todo item?");
       
@@ -72,8 +71,6 @@ const ToDoArea = () => {
         }
       };
 
-
-
     useEffect(() => {
         const fetchPosts = async () => {
             const response = await fetch('/api/prompt');
@@ -83,8 +80,6 @@ const ToDoArea = () => {
         }
         fetchPosts();
     }, [])
-
-
 
     return (
         <>
