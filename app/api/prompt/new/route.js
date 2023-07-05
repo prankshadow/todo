@@ -2,13 +2,13 @@ import { connectToDB } from "@/utils/database";
 import Todo from "@/models/todo";
 
 export const POST = async (req) => {
-    const { todoitem } = await req.json();
+    const { userId, todoitem } = await req.json();
 
     try {
 
         await connectToDB();
         const newTodo = new Todo({
-            todoitem: todoitem
+            creator: userId, todoitem
         })
 
         await newTodo.save();

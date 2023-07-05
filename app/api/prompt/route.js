@@ -5,7 +5,7 @@ export const GET = async (request) => {
     try {
         await connectToDB();
 
-        const todos = await Todo.find({});
+        const todos = await Todo.find({}).populate('creator');
 
         return new Response(JSON.stringify(todos), {
             status: 200

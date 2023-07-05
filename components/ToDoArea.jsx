@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Note from '@/components/Note'
 import ToDoItem from '@/components/ToDoItem'
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 
 const ToDoItemList = ({ data, handleDelete }) => {
@@ -22,6 +23,7 @@ const ToDoItemList = ({ data, handleDelete }) => {
 const ToDoArea = () => {
 
     const router = useRouter();
+    const { data: session } = useSession();
 
     const [submitting, setSubmitting] = useState(false);
     const [post, setPost] = useState({
@@ -38,6 +40,7 @@ const ToDoArea = () => {
                 {
                     method: 'POST',
                     body: JSON.stringify({
+                        userId: session?.user.id,
                         todoitem: post.todoitem,
                     })
                 })
