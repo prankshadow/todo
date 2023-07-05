@@ -1,3 +1,4 @@
+import Provider from '@/components/Provider';
 import './globals.css'
 import { Inter, Fasthand, Alegreya_Sans_SC } from 'next/font/google'
 
@@ -29,7 +30,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${fasthand.variable} ${alegreyaSansSC.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${fasthand.variable} ${alegreyaSansSC.variable}`}>
+        <Provider>
+          {children}
+        </Provider>
+      </body>
     </html>
   )
 }

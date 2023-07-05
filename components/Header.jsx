@@ -5,19 +5,19 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 const Header = () => {
 
-  const isUserLoggedIn = true
+  const { data: session } = useSession();
 
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
 
       setProviders(response);
     }
 
-    setProviders();
+    setUpProviders();
   })
 
 
@@ -27,9 +27,12 @@ const Header = () => {
 
       <div className='absolute md:right-10 top-10 right-3 lg:block md:block hidden'>
 
-        {isUserLoggedIn ? (
+        {/* {alert(session?.user)} */}
+        {/* {alert(providers)} */}
+
+        {session?.user ? (
           <button>
-            <Image src='/logo.svg'
+            <Image src={session?.user.image}
               width={37}
               height={37}
               className="rounded-full"
@@ -75,9 +78,9 @@ const Header = () => {
 
       <div className='absolute md:right-10 top-10 right-3 lg:hidden md:hidden block'>
 
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <button>
-            <Image src='/logo2.svg'
+            <Image src={session?.user.image}
               width={37}
               height={37}
               className="rounded-full"
