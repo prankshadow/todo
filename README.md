@@ -31,14 +31,26 @@ Before running the application, make sure you have the following installed:
    ```bash
    git clone https://github.com/prankshadow/todo-app.git
 
+2. Navigate to the project directory: 
+
+   ```bash
    cd todo-app
 
+3. Install the dependencies:
+
+   ```bash
    npm install
 
+4. Create a .env file in the root directory and add the following environment variables:
+
+   ```bash
    MONGODB_URI=your_mongodb_uri
    GOOGLE_ID=your_google_client_id
    GOOGLE_CLIENT_ID=your_google_client_secret
 
+5. Start the development server:
+
+   ```bash
    npm run dev
 
 
