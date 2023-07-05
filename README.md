@@ -48,6 +48,10 @@ Before running the application, make sure you have the following installed:
    GOOGLE_ID=your_google_client_id
    GOOGLE_CLIENT_ID=your_google_client_secret
 
+   NEXTAUTH_URL=your_localhost
+   NEXTAUTH_URL_INTERNAL=your_localhost
+   NEXTAUTH_SECRET=random_generated_string_using_openssh
+
 5. Start the development server:
 
    ```bash
