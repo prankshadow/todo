@@ -56,8 +56,7 @@ Before running the application, make sure you have the following installed:
 
    ```bash
    npm run dev
-
-
+   
 ## Usage
 
 - Sign in using your Google account.
