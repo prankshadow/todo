@@ -18,8 +18,7 @@ const Header = () => {
     }
 
     setUpProviders();
-  })
-
+  }, []); 
 
   return (
     <div className='pt-8 w-full'>
@@ -31,14 +30,16 @@ const Header = () => {
         {/* {alert(providers)} */}
 
         {session?.user ? (
-          <button>
-            <Image src={session?.user.image}
-              width={37}
-              height={37}
-              className="rounded-full"
-              alt="profile"
-              onClick={() => setToggleDropdown((prev) => !prev)}
-            />
+          <div>
+            <button>
+              <Image src={session?.user.image}
+                width={37}
+                height={37}
+                className="rounded-full"
+                alt="profile"
+                onClick={() => setToggleDropdown((prev) => !prev)}
+              />
+            </button>
 
             {toggleDropdown && (
               <div className='dropdown'>
@@ -54,21 +55,20 @@ const Header = () => {
                 </button>
               </div>
             )}
-
-
-          </button>
+          </div>
         ) : (
           <>
             {providers && Object.values(providers).map((provider) => (
-              <Image
-                src='/google.svg'
-                key={provider.name}
-                onClick={() => signIn(provider.id)}
-                width={37}
-                height={37}
-                alt='google button'
-                className='cursor-pointer'
-              />
+              <div key={provider.name}>
+                <Image
+                  src='/google.svg'
+                  onClick={() => signIn(provider.id)}
+                  width={37}
+                  height={37}
+                  alt='google button'
+                  className='cursor-pointer'
+                />
+              </div>
             ))}
           </>
         )}
@@ -80,14 +80,16 @@ const Header = () => {
       <div className='absolute md:right-10 top-10 right-3 lg:hidden md:hidden block'>
 
         {session?.user ? (
-          <button>
-            <Image src={session?.user.image}
-              width={37}
-              height={37}
-              className="rounded-full"
-              alt="profile"
-              onClick={() => setToggleDropdown((prev) => !prev)}
-            />
+          <div>
+            <button>
+              <Image src={session?.user.image}
+                width={37}
+                height={37}
+                className="rounded-full"
+                alt="profile"
+                onClick={() => setToggleDropdown((prev) => !prev)}
+              />
+            </button>
 
             {toggleDropdown && (
               <div className='dropdown'>
@@ -103,22 +105,20 @@ const Header = () => {
                 </button>
               </div>
             )}
-
-
-          </button>
+          </div>
         ) : (
           <>
             {providers && Object.values(providers).map((provider) => (
-           
+              <div key={provider.name}>
                 <Image
                   src='/google.svg'
-                  key={provider.name}
                   onClick={() => signIn(provider.id)}
                   width={37}
                   height={37}
                   alt='google button'
                   className='cursor-pointer'
                 />
+              </div>
             ))}
           </>
         )}
@@ -130,4 +130,3 @@ const Header = () => {
 }
 
 export default Header
-
