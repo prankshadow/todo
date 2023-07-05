@@ -60,14 +60,15 @@ const Header = () => {
         ) : (
           <>
             {providers && Object.values(providers).map((provider) => (
-              <button
-                type="button"
+              <Image
+                src='/google.svg'
                 key={provider.name}
                 onClick={() => signIn(provider.id)}
-                className='black_btn'
-              >
-                Sign In
-              </button>
+                width={37}
+                height={37}
+                alt='google button'
+                className='cursor-pointer'
+              />
             ))}
           </>
         )}
@@ -108,14 +109,16 @@ const Header = () => {
         ) : (
           <>
             {providers && Object.values(providers).map((provider) => (
-              <button
-                type="button"
-                key={provider.name}
-                onClick={() => signIn(provider.id)}
-                className='black_btn'
-              >
-                Sign In
-              </button>
+           
+                <Image
+                  src='/google.svg'
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                  width={37}
+                  height={37}
+                  alt='google button'
+                  className='cursor-pointer'
+                />
             ))}
           </>
         )}
